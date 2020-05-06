@@ -17,4 +17,10 @@ async def test_output(ctx):
     await ctx.send(response)
 
 
+@bot.command(name="dice", help="Simulates rolling dice", category="Utility")
+async def roll_dice(ctx, number_of_dice: int, number_of_sides: int):
+    dice = [str(random.randint(1, number_of_sides)) for i in range(number_of_dice)]
+    await ctx.send(", ".join(dice))
+
+
 bot.run(TOKEN)
