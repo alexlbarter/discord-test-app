@@ -10,6 +10,11 @@ GUILD = os.getenv("DISCORD_GUILD")
 bot = commands.Bot(command_prefix="!")
 
 
+@bot.event
+async def on_ready():
+    print(f"Bot {bot.user} has connected")
+
+
 @bot.command(name="test")
 async def test_output(ctx):
     outputs = ["test output 1", "test output 2", "test output 3"]
